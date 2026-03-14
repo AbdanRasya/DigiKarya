@@ -25,7 +25,7 @@ app.post('/api/checkout', async (req, res) => {
       email: customerEmail,       // Wajib
       mobile: customerMobile,     // Wajib
       customer_name: customerName,
-      redirectUrl: `http://localhost:${PORT}/index.html` 
+      redirectUrl: `${req.protocol}://${req.get('host')}/index.html`
     };
 
     const response = await fetch('https://api.mayar.club/hl/v1/payment/create', {
